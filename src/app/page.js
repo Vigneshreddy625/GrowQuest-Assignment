@@ -15,7 +15,7 @@ export default function HomePage() {
           <img
             src="https://growquest.in/wp-content/uploads/2024/01/growquest-logo-main.png"
             alt="GrowQuest Logo"
-            className="h-12 w-auto text-white"
+            className="h-12 w-48 md:w-auto"
           />
           <nav className="hidden md:flex space-x-6 text-gray-700 items-center">
             <a href="#about" className="hover:text-blue-600">
@@ -39,7 +39,7 @@ export default function HomePage() {
               </div>
             </div>
           </nav>
-          <div className="md:hidden ml-4">
+          <div className="md:hidden ml-4 relative">
             <div className="flex items-center gap-2 pl-2 border-l-2 border-gray-400 text-sm cursor-pointer"
               onClick={toggleDropdown}>
               <img
@@ -47,24 +47,24 @@ export default function HomePage() {
                 src="https://via.placeholder.com/150"
                 alt="User Avatar"
               />
-              {showDropdown && (
-                <div className="absolute right-0 mt-64 w-48 bg-gray-700 rounded-lg shadow-lg py-2">
-                  <div className="px-4 py-2 flex flex-col justify-center items-center gap-4">
-                    <p className="font-medium text-center md:text-start text-xs md:text-sm">Vignesh Reddy</p>
-                    <p className="text-white text-xs md:text-sm">Vigneshreddy@growquest.in</p>
-                    <a href="#about" className="hover:text-blue-600">
-              About Us
-            </a>
-            <a href="#services" className="hover:text-blue-600">
-              Services
-            </a>
-            <a href="#contact" className="hover:text-blue-600">
-              Contact
-            </a>
-                  </div>
-                </div>
-              )}
             </div>
+            {showDropdown && (
+              <div className="absolute right-0 mt-12 w-48 bg-gray-700 rounded-lg shadow-lg py-2">
+                <div className="px-4 py-2 flex flex-col justify-center items-center gap-4">
+                  <p className="font-medium text-center md:text-start text-xs md:text-sm">Vignesh Reddy</p>
+                  <p className="text-white text-xs md:text-sm">vigneshreddy@growquest.in</p>
+                  <a href="#about" className="block text-white hover:text-blue-600">
+                    About Us
+                  </a>
+                  <a href="#services" className="block text-white hover:text-blue-600">
+                    Services
+                  </a>
+                  <a href="#contact" className="block text-white hover:text-blue-600">
+                    Contact
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </header>
@@ -117,11 +117,6 @@ export default function HomePage() {
           </div>
         </section>
       </main>
-      <footer className="shadow-md mt-12">
-        <div className="container mx-auto px-6 py-4 text-center">
-          <p className="text-gray-600">&copy; {new Date().getFullYear()} GrowQuest Consulting. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 }

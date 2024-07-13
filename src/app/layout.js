@@ -19,7 +19,13 @@ export default function RootLayout({ children }) {
           <div className="flex flex-col w-full h-full">
             <main className="flex-grow bg-gray-100 h-full overflow-y-auto">
               {children}
+              <footer className="shadow-md dark:bg-gray-800">
+            <div className="container mx-auto px-6 py-4 text-center">
+              <p className="text-white">&copy; {new Date().getFullYear()} GrowQuest Consulting. All rights reserved.</p>
+            </div>
+          </footer>
             </main>
+            
           </div>
         </div>
       </body>
