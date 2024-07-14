@@ -22,7 +22,7 @@ const Head = () => {
         <span className="bg-purple-100 text-purple-600 px-2 py-1 rounded-full text-sm ml-4 mt-2 border-2 border-purple-700">
           Awaiting Business Approval
         </span>
-        <div className="flex items-center flex-wrap ml-4 space-x-2">
+        <div className="flex items-center flex-wrap lg:ml-4 space-x-2">
           <Icon icon={<FaInfoCircle />} />
           <Icon icon={<FaFileAlt />} />
           <Icon icon={<FaClock />} />

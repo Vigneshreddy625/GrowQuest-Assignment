@@ -15,17 +15,18 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="h-screen overflow-hidden">
         <div className="flex gap-0 h-full">
+          <div className="hidden lg:block">
           <Navbar />
+          </div>
           <div className="flex flex-col w-full h-full">
             <main className="flex-grow bg-gray-100 h-full overflow-y-auto">
               {children}
-              <footer className="shadow-md dark:bg-gray-800">
+              <footer className="shadow-md dark:bg-yellow-500">
             <div className="container mx-auto px-6 py-4 text-center">
-              <p className="text-white">&copy; {new Date().getFullYear()} GrowQuest Consulting. All rights reserved.</p>
+              <p className="text-black">&copy; {new Date().getFullYear()} GrowQuest Consulting. All rights reserved.</p>
             </div>
           </footer>
             </main>
-            
           </div>
         </div>
       </body>

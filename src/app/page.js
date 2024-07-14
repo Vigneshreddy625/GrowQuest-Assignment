@@ -1,8 +1,15 @@
 "use client";
-import React, { useState } from 'react';
+import { useState } from "react";
+import Link from "next/link";
+import { FaBell, FaHome, FaLeaf, FaCompass, FaFileAlt, FaCog } from "react-icons/fa";
 
 export default function HomePage() {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -10,12 +17,35 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-50 to-white">
-      <header className="shadow-md">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+      <header className="shadow-md flex flex-row">
+      <div className="lg:hidden flex items-center pl-4">
+            <button
+              className={`focus:outline-none `}
+              onClick={toggleMenu}
+              aria-label="Toggle mobile menu"
+            >
+              <svg
+                className="w-6 h-6 transition-transform duration-300 hover:scale-110"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="gray"
+              >
+                {isMenuOpen ? (
+                  <path d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path d="M3 12h18M3 6h18M3 18h18" />
+                )}
+              </svg>
+            </button>
+          </div>
+        <div className="container mx-auto px-3 py-4 flex justify-between gap-2 items-center">
           <img
             src="https://growquest.in/wp-content/uploads/2024/01/growquest-logo-main.png"
             alt="GrowQuest Logo"
-            className="h-12 w-48 md:w-auto"
+            className="h-12 w-40 md:w-auto"
           />
           <nav className="hidden md:flex space-x-6 text-gray-700 items-center">
             <a href="#about" className="hover:text-blue-600">
@@ -51,7 +81,7 @@ export default function HomePage() {
             {showDropdown && (
               <div className="absolute right-0 mt-12 w-48 bg-gray-700 rounded-lg shadow-lg py-2">
                 <div className="px-4 py-2 flex flex-col justify-center items-center gap-4">
-                  <p className="font-medium text-center md:text-start text-xs md:text-sm">Vignesh Reddy</p>
+                  <p className="text-white font-medium text-center md:text-start text-xs md:text-sm">Vignesh Reddy</p>
                   <p className="text-white text-xs md:text-sm">vigneshreddy@growquest.in</p>
                   <a href="#about" className="block text-white hover:text-blue-600">
                     About Us
@@ -66,6 +96,87 @@ export default function HomePage() {
               </div>
             )}
           </div>
+        </div>
+        <div
+          className={`lg:hidden fixed inset-y-0 left-0 z-50 overflow-y-auto transition-transform duration-500 ease-in-out transform bg-white text-black ${
+            isMenuOpen ? "translate-x-0" : "-translate-x-full"
+          } w-1/2 `}
+        >
+          <div className="flex justify-between items-center py-4 px-4">
+            <button
+              className={`focus:outline-none `}
+              onClick={toggleMenu}
+              aria-label="Close mobile menu"
+            >
+              <svg
+                className="w-6 h-6 transition-transform duration-300 hover:scale-110"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <ul className="font-medium">
+            <li>
+              <Link
+                href="/"
+                onClick={toggleMenu}
+                className="flex items-center gap-2 block py-2 px-4 hover:bg-gray-600 transition-all duration-300"
+                activeClassName="text-orange-700 font-semibold"
+              >
+                <FaHome />
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/leaf"
+                onClick={toggleMenu}
+                className="flex items-center gap-2 block py-2 px-4 hover:bg-gray-600 transition-all duration-300"
+                activeClassName="text-orange-700 font-semibold"
+              >
+                <FaLeaf />
+                Leaf
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/compass"
+                onClick={toggleMenu}
+                className="flex items-center gap-2 block py-2 px-4 hover:bg-gray-600 transition-all duration-300"
+                activeClassName="text-orange-700 font-semibold"
+              >
+                <FaCompass />
+                Compass
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/file"
+                onClick={toggleMenu}
+                className="flex items-center gap-2 block py-2 px-4 hover:bg-gray-600 transition-all duration-300"
+                activeClassName="text-orange-700 font-semibold"
+              >
+                <FaFileAlt />
+                File
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/settings"
+                onClick={toggleMenu}
+                className="flex items-center gap-2 block py-2 px-4 hover:bg-gray-600 transition-all duration-300"
+              >
+                <FaCog/>
+                Settings
+              </Link>
+            </li>
+          </ul>
         </div>
       </header>
       <main>
