@@ -251,10 +251,12 @@ function page() {
       </div>
       <div className="mb-2 border-b px-6 py-2">
       <div className='flex flex-col gap-4 mb-4'>
-      <div className='w-2 h-8 bg-red-500'></div>
-      <h2 className="text-xl font-bold text-black">
+        <div className='flex flex-row gap-4'>
+      <div className='w-2 h-10 md:h-8 bg-red-500 mt-2 sm:mt-0'></div>
+      <h2 className="text-xl font-bold text-black ">
         Additional Location For Supply
       </h2>
+      </div>
       <div className="w-full">
             <label className="block text-sm font-medium text-gray-700">
               Location*
@@ -268,6 +270,15 @@ function page() {
               </label>
               <FaPaperclip className="mr-2 text-gray-700 mt-1" />
             </div>
+          </div>
+          <div className="w-full">
+            <label className="block text-sm font-medium text-gray-700">
+              PAN Number
+            </label>
+            <input
+              type="text"
+              className="mt-1 block w-full border border-gray-300 shadow-sm"
+            />
           </div>
       </div>
       
